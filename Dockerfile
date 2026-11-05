@@ -5,8 +5,22 @@ FROM ghcr.io/anomalyco/opencode:2.2.5
 
 # Install tools
 RUN apk add --update --no-cache shadow-uidmap nftables \
-	git python3 go rust gcc make musl-dev npm \
+	git python3 py3-pip go rust gcc make musl-dev npm \
 	bash curl jq yq github-cli
+
+# Install chromium & puppeteer
+RUN apk add --no-cache \
+    udev \
+    ttf-freefont \
+    font-roboto \
+    chromium \
+    nss \
+    freetype \
+    harfbuzz \
+    ca-certificates
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+RUN npm install -g puppeteer@25.16.0 marked@18.1.3
 
 # Install plugins
 RUN npm install -g @upstash/context7-opencode@0.2.1
