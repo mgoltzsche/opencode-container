@@ -1,4 +1,4 @@
-FROM localhost/mgoltzsche/podman:6.2.0-minimal AS podman
+FROM ghcr.io/mgoltzsche/podman:6.2.0-minimal AS podman
 
 
 FROM ghcr.io/anomalyco/opencode:2.2.5

@@ -13,4 +13,4 @@ podman run -it --rm --device /dev/fuse --network=host --userns=keep-id \
 	--tmpfs /home/opencode/.local/share/containers/storage:mode=1777 \
 	$OPTS \
 	-v "`pwd`:/workspace" -w /workspace \
-	docker.io/mgoltzsche/opencode "$@"
+	ghcr.io/mgoltzsche/opencode "$@"
