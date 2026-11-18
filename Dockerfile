@@ -1,7 +1,7 @@
 FROM ghcr.io/mgoltzsche/podman:6.2.0-minimal AS podman
 
 
-FROM ghcr.io/anomalyco/opencode:2.3.0
+FROM ghcr.io/anomalyco/opencode:2.3.2
 
 # Install tools
 RUN apk add --update --no-cache shadow-uidmap nftables \
