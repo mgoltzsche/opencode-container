@@ -1,7 +1,7 @@
-FROM ghcr.io/mgoltzsche/podman:6.2.0-minimal AS podman
+FROM ghcr.io/mgoltzsche/podman:6.2.1-minimal AS podman
 
 
-FROM ghcr.io/anomalyco/opencode:2.3.2
+FROM ghcr.io/anomalyco/opencode:2.4.2
 
 # Install tools
 RUN apk add --update --no-cache shadow-uidmap nftables \
@@ -20,10 +20,10 @@ RUN apk add --no-cache \
     ca-certificates
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
-RUN npm install -g puppeteer@25.16.0 marked@18.1.3
+RUN npm install -g puppeteer@25.19.0 marked@18.3.0
 
 # Install plugins
-RUN npm install -g @upstash/context7-opencode@0.2.1
+RUN npm install -g @upstash/context7-opencode@0.2.2
 
 # Install podman
 COPY --from=podman /usr/local /usr/local
